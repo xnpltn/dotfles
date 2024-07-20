@@ -1,0 +1,2 @@
+#!/bin/env bash
+sudo docker run -itd --name surreal --rm -p 8000:8000 surrealdb/surrealdb:latest start

@@ -127,9 +127,8 @@ eval "$(goenv init -)"
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 
-# go binaries
-
-export PATH="$PATH:$HOME/go/bin"
+# personal binaries
+export PATH="$PATH:$HOME/bin"
 
 
 
@@ -147,3 +146,8 @@ export PATH=$BUN_INSTALL/bin:$PATH
 
 # custom scripts
 export PATH="$PATH:$HOME/.scripts"
+
+# haskell 
+[ -f "/home/xnpltn/.ghcup/env" ] && . "/home/xnpltn/.ghcup/env" # ghcup-env
+
+export PATH="$PATH:$HOME/Documents/Postman"
