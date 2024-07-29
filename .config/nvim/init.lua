@@ -9,6 +9,22 @@ if not vim.loop.fs_stat(lazypath) then
   vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
 
+ -- c3
+vim.cmd([[
+  augroup mylang
+    autocmd!
+    autocmd BufNewFile,BufRead *.c3 set filetype=c3
+  augroup END
+]])
+
+vim.cmd([[
+  augroup mylang_syntax
+    autocmd!
+    autocmd FileType mylang source ~/.config/nvim/syntax/c3.vim
+  augroup END
+]])
+--
+
 vim.opt.rtp:prepend(lazypath)
 
 local lazy_config = require "configs.lazy"
