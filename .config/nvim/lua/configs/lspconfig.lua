@@ -4,7 +4,7 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
-local servers = { "html", "cssls" }
+local servers = { "html", "cssls", "lua_ls" }
 local on_attch_format = require("lsp-format").on_attach
 
 local function combined_on_attach(client, bufnr)
@@ -14,12 +14,12 @@ end
 
 
 --go
-lspconfig.gopls.setup{
+lspconfig.gopls.setup {
   on_attach = combined_on_attach,
   capabilities = capabilities,
   on_init = on_init,
-  cmd = {"gopls"},
-  filetypes = {"go", "gomod", "gowork", "gotempl"},
+  cmd = { "gopls" },
+  filetypes = { "go", "gomod", "gowork", "gotempl" },
   root_dir = util.root_pattern("go.work", "go.mod", "go.sum", ".git"),
   settings = {
     gopls = {
@@ -35,32 +35,32 @@ lspconfig.gopls.setup{
 }
 
 -- sql
-lspconfig.sqls.setup{
+lspconfig.sqls.setup {
   on_attach = combined_on_attach,
   capabilities = capabilities,
   on_init = on_init,
 }
 
--- vlang 
-lspconfig.v_analyzer.setup{
+-- vlang
+lspconfig.v_analyzer.setup {
   on_attach = combined_on_attach,
   capabilities = capabilities,
   on_init = on_init,
 }
 
 -- templ
-lspconfig.templ.setup{
+lspconfig.templ.setup {
   on_attach = combined_on_attach,
   capabilities = capabilities,
   on_init = on_init,
 }
 
 --python
-lspconfig.pyright.setup{
+lspconfig.pyright.setup {
   on_attach = combined_on_attach,
   capabilities = capabilities,
   on_init = on_init,
-  filetypes = {"python"},
+  filetypes = { "python" },
   settings = {
     pyright = {
       completeUnimported = true,
@@ -73,11 +73,11 @@ lspconfig.pyright.setup{
 }
 
 -- vue
-lspconfig.volar.setup{
+lspconfig.volar.setup {
   on_attach = combined_on_attach,
   capabilities = capabilities,
   on_init = on_init,
-  filetypes ={"vue", "typescript", "javascript",},
+  filetypes = { "vue", "typescript", "javascript", },
   settings = {
     volar = {
       completeUnimported = true,
@@ -89,11 +89,11 @@ lspconfig.volar.setup{
   },
 }
 -- c and c++
-lspconfig.clangd.setup{
+lspconfig.clangd.setup {
   on_attach = combined_on_attach,
   capabilities = capabilities,
-  on_init= on_init,
-  filetypes = {"c", "cpp"},
+  on_init = on_init,
+  filetypes = { "c", "cpp" },
   settings = {
     clangd = {
       completeUnimported = true,
@@ -113,30 +113,40 @@ for _, lsp in ipairs(servers) do
   }
 end
 -- rust_analyzer
-lspconfig.rust_analyzer.setup{
-  on_attach= combined_on_attach,
-  capabilities= capabilities,
-  on_init= on_init,
+lspconfig.rust_analyzer.setup {
+  on_attach = combined_on_attach,
+  capabilities = capabilities,
+  on_init = on_init,
+}
+
+-- slint
+lspconfig.slint_lsp.setup {
+  on_attach = combined_on_attach,
+  capabilities = capabilities,
+  on_init = on_init,
+  filetypes = { "slint" },
+  cmd = { "slint-lsp" },
+  root_dir = util.root_pattern("slint", "base.slint", "ui.slint", ".git"),
 }
 
 -- json
-lspconfig.jsonls.setup{
+lspconfig.jsonls.setup {
   on_attach = combined_on_attach,
-  on_init= on_init,
+  on_init = on_init,
   capabilities = capabilities,
   cmd = { "vscode-json-language-server", "--stdio" },
   filetypes = { "json", "jsonc" },
-  init_options = {provideFormatter = true}
+  init_options = { provideFormatter = true }
 }
 -- typescript
 lspconfig.tsserver.setup {
   on_attach = combined_on_attach,
   on_init = on_init,
   capabilities = capabilities,
-  filetypes= {"javascript", "typescript", "vue", "ts", "js"},
+  filetypes = { "javascript", "typescript", "vue", "ts", "js" },
   settings = {
     tsserver = {
-      completeUnimported= true,
+      completeUnimported = true,
       usePlaceholders = true,
       analyses = {
         unusedparams = true,
@@ -151,6 +161,5 @@ lspconfig.tailwindcss.setup({
   init_options = { userLanguages = { templ = "html" } },
 })
 
--- v-lang 
-
-lspconfig.vls.setup{}
+-- v-lang
+lspconfig.vls.setup {}
