@@ -1,5 +1,5 @@
 return {
-{
+  {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
@@ -15,7 +15,7 @@ return {
         "sqls",
       },
     },
-},
+  },
   {
     "stevearc/conform.nvim",
     config = function()
@@ -32,6 +32,6 @@ return {
   },
   {
     "lukas-reineke/lsp-format.nvim",
-    lazy= false,
+    lazy = false,
   },
 }

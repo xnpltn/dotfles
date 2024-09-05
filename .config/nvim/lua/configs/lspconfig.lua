@@ -88,6 +88,25 @@ lspconfig.volar.setup {
     },
   },
 }
+
+
+-- svelte
+
+lspconfig.svelte.setup {
+  on_attach = combined_on_attach,
+  capabilities = capabilities,
+  on_init = on_init,
+  settings = {
+    svelte = {
+      completeUnimported = true,
+      usePlaceholders = true,
+      analyses = {
+        unusedparams = true,
+      },
+    },
+  },
+}
+
 -- c and c++
 lspconfig.clangd.setup {
   on_attach = combined_on_attach,
@@ -117,6 +136,11 @@ lspconfig.rust_analyzer.setup {
   on_attach = combined_on_attach,
   capabilities = capabilities,
   on_init = on_init,
+  settings = {
+    rust_analyzer = {
+      usePlaceholders = true,
+    }
+  }
 }
 
 -- slint
@@ -163,3 +187,17 @@ lspconfig.tailwindcss.setup({
 
 -- v-lang
 lspconfig.vls.setup {}
+lspconfig.zls.setup {
+  on_attach = combined_on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  settings = {
+    vls = {
+      completeUnimported = true,
+      usePlaceholders = true,
+      analyses = {
+        unusedparams = true,
+      }
+    }
+  },
+}
