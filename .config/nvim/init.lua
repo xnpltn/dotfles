@@ -14,6 +14,8 @@ vim.opt.rtp:prepend(lazypath)
 vim.cmd [[ autocmd BufRead,BufNewFile *.slint set filetype=slint ]]
 local lazy_config = require "configs.lazy"
 
+
+
 -- load plugins
 require("lazy").setup({
   {

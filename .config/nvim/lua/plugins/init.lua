@@ -2,18 +2,6 @@ return {
   {
     "williamboman/mason.nvim",
     opts = {
-      ensure_installed = {
-        "html-lsp",
-        "templ",
-        "htmx-lsp",
-        "typescript-language-server",
-        "rust-analyzer",
-        "tailwindcss-language-server",
-        "clangd",
-        "vue-language-server",
-        "haskell-language-server",
-        "sqls",
-      },
     },
   },
   {

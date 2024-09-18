@@ -163,7 +163,7 @@ lspconfig.jsonls.setup {
   init_options = { provideFormatter = true }
 }
 -- typescript
-lspconfig.tsserver.setup {
+lspconfig.ts_ls.setup {
   on_attach = combined_on_attach,
   on_init = on_init,
   capabilities = capabilities,
@@ -186,13 +186,28 @@ lspconfig.tailwindcss.setup({
 })
 
 -- v-lang
-lspconfig.vls.setup {}
-lspconfig.zls.setup {
+lspconfig.vls.setup {
   on_attach = combined_on_attach,
   on_init = on_init,
   capabilities = capabilities,
   settings = {
     vls = {
+      completeUnimported = true,
+      usePlaceholders = true,
+      analyses = {
+        unusedparams = true,
+      }
+    }
+  },
+}
+
+-- zig
+lspconfig.zls.setup {
+  on_attach = combined_on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  settings = {
+    zls = {
       completeUnimported = true,
       usePlaceholders = true,
       analyses = {
