@@ -183,6 +183,16 @@ lspconfig.tailwindcss.setup({
   on_attach = combined_on_attach,
   capabilities = capabilities,
   init_options = { userLanguages = { templ = "html" } },
+  settings = {
+    tailwindCSS = {
+      experimental = {
+        classRegex = {
+          { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+          { "cx\\(([^)]*)\\)",  "(?:'|\"|`)([^']*)(?:'|\"|`)" }
+        },
+      },
+    },
+  },
 })
 
 -- v-lang
