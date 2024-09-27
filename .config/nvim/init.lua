@@ -14,6 +14,11 @@ vim.opt.rtp:prepend(lazypath)
 vim.cmd [[ autocmd BufRead,BufNewFile *.slint set filetype=slint ]]
 local lazy_config = require "configs.lazy"
 
+vim.filetype.add({
+  extension = {
+    mdx = 'mdx'
+  }
+})
 
 
 -- load plugins
@@ -38,3 +43,11 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+require('render-markdown').setup({
+  file_types = { 'markdown', 'quarto' },
+})
+
+require 'nvim-treesitter.configs'.setup {
+  ensure_installed = { "c", "python", "rust", "go", "v", "zig", "typescript", "javascript", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "vue", "astro" },
+}

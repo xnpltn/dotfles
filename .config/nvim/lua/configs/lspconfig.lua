@@ -71,7 +71,7 @@ lspconfig.pyright.setup {
     }
   }
 }
-
+lspconfig.mdx_analyzer.setup {}
 -- vue
 lspconfig.volar.setup {
   on_attach = combined_on_attach,
@@ -162,6 +162,8 @@ lspconfig.jsonls.setup {
   filetypes = { "json", "jsonc" },
   init_options = { provideFormatter = true }
 }
+
+lspconfig.astro.setup {}
 -- typescript
 lspconfig.ts_ls.setup {
   on_attach = combined_on_attach,
