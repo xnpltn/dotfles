@@ -94,6 +94,8 @@ alias l='ls -CF'
 
 #custon aliases
 alias vim='nvim'
+alias python='python3.12'
+alias tx='tmux'
 
 
 # Add an "alert" alias for long running commands.  Use like so:

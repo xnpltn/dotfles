@@ -166,4 +166,3 @@ hi def link c3Comment      Comment
 hi def link c3Contract     Comment
 
 let b:current_syntax = "c3"
-
