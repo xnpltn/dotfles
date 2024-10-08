@@ -48,6 +48,10 @@ require('render-markdown').setup({
   file_types = { 'markdown', 'quarto' },
 })
 
+
+
 require 'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c", "python", "rust", "go", "v", "zig", "typescript", "javascript", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "vue", "astro" },
+  ensure_installed = { "c", "python", "slint", "rust", "go", "v", "zig", "typescript", "javascript", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "vue", "astro" },
 }
+
+

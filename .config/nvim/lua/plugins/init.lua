@@ -1,8 +1,6 @@
 return {
   {
     "williamboman/mason.nvim",
-    opts = {
-    },
   },
   {
     'MeanderingProgrammer/render-markdown.nvim',

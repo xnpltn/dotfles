@@ -36,7 +36,7 @@ lspconfig.gopls.setup {
 
 -- sql
 lspconfig.sqls.setup {
-  on_attach = combined_on_attach,
+  on_attach = on_attach,
   capabilities = capabilities,
   on_init = on_init,
 }
@@ -56,11 +56,10 @@ lspconfig.templ.setup {
 }
 
 --python
-lspconfig.pyright.setup {
+lspconfig.pylsp.setup {
   on_attach = combined_on_attach,
   capabilities = capabilities,
   on_init = on_init,
-  filetypes = { "python" },
   settings = {
     pyright = {
       completeUnimported = true,
@@ -71,6 +70,8 @@ lspconfig.pyright.setup {
     }
   }
 }
+
+-- mdx
 lspconfig.mdx_analyzer.setup {}
 -- vue
 lspconfig.volar.setup {
@@ -165,11 +166,23 @@ lspconfig.jsonls.setup {
 
 lspconfig.astro.setup {}
 -- typescript
+local mason_registry = require('mason-registry')
+local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path() ..
+    '/node_modules/@vue/language-server'
 lspconfig.ts_ls.setup {
   on_attach = combined_on_attach,
   on_init = on_init,
   capabilities = capabilities,
   filetypes = { "javascript", "typescript", "vue", "ts", "js" },
+  init_options = {
+    plugins = {
+      {
+        name = '@vue/typescript-plugin',
+        location = vue_language_server_path,
+        languages = { 'vue' },
+      },
+    },
+  },
   settings = {
     tsserver = {
       completeUnimported = true,
