@@ -13,6 +13,8 @@ vim.opt.rtp:prepend(lazypath)
 
 local lazy_config = require "configs.lazy"
 
+vim.wo.relativenumber = true
+
 
 vim.cmd [[ autocmd BufRead,BufNewFile *.slint set filetype=slint ]]
 vim.filetype.add({
@@ -27,7 +29,7 @@ require("lazy").setup({
     "NvChad/NvChad",
     lazy = false,
     branch = "v2.5",
-   import = "nvchad.plugins",
+    import = "nvchad.plugins",
   },
 
   { import = "plugins" },
@@ -53,5 +55,3 @@ require('render-markdown').setup({
 require 'nvim-treesitter.configs'.setup {
   ensure_installed = { "c", "python", "slint", "rust", "go", "v", "zig", "typescript", "javascript", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "vue", "astro" },
 }
-
-
