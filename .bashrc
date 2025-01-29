@@ -151,6 +151,11 @@ export PATH=$BUN_INSTALL/bin:$PATH
 export PATH="$PATH:$HOME/.scripts"
 
 # haskell 
-[ -f "/home/xnpltn/.ghcup/env" ] && . "/home/xnpltn/.ghcup/env" # ghcup-env
 
 export PATH="$PATH:$HOME/Documents/Postman"
+
+[ -f "/home/xn/.ghcup/env" ] && . "/home/xn/.ghcup/env" # ghcup-env
+
+ # java
+export PATH="$PATH:$HOME/Documents/jre-8u431-linux-x64/jre1.8.0_431/bin/"
+
