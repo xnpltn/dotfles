@@ -159,3 +159,5 @@ export PATH="$PATH:$HOME/Documents/Postman"
  # java
 export PATH="$PATH:$HOME/Documents/jre-8u431-linux-x64/jre1.8.0_431/bin/"
 
+
+# export NODE_TLS_REJECT_UNAUTHORIZED=0

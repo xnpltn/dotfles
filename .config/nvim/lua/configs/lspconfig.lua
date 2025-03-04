@@ -56,7 +56,7 @@ lspconfig.templ.setup {
 }
 
 --python
-lspconfig.pylsp.setup {
+lspconfig.pyright.setup {
   on_attach = combined_on_attach,
   capabilities = capabilities,
   on_init = on_init,
@@ -109,21 +109,21 @@ lspconfig.svelte.setup {
 }
 
 -- c and c++
-lspconfig.clangd.setup {
-  on_attach = combined_on_attach,
-  capabilities = capabilities,
-  on_init = on_init,
-  filetypes = { "c", "cpp" },
-  settings = {
-    clangd = {
-      completeUnimported = true,
-      usePlaceholders = true,
-      analyses = {
-        unusedparams = true
-      }
-    }
-  }
-}
+-- lspconfig.clangd.setup {
+--   on_attach = combined_on_attach,
+--   capabilities = capabilities,
+--   on_init = on_init,
+--   filetypes = { "c", "cpp" },
+--   settings = {
+--     clangd = {
+--       completeUnimported = true,
+--       usePlaceholders = true,
+--       analyses = {
+--         unusedparams = true
+--       }
+--     }
+--   }
+-- }
 -- lsps with default config
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -241,3 +241,6 @@ lspconfig.zls.setup {
     }
   },
 }
+
+
+lspconfig.prismals.setup {}
